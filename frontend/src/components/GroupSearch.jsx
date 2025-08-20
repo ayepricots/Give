@@ -6,7 +6,7 @@ export default function GroupSearch() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const inputRef = useRef(null);
+  const containerRef = useRef(null);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -36,7 +36,7 @@ export default function GroupSearch() {
   // Close dropdown and clear input when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (inputRef.current && !inputRef.current.contains(e.target)) {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
         setShowDropdown(false);
         setSearchQuery("");
         setExpanded(false);
@@ -75,14 +75,14 @@ export default function GroupSearch() {
       : groups.slice(0, 5);
 
   return (
-    <div className="w-full h-full relative">
+  <div className="w-full h-full relative" ref={containerRef}>
       <div className={`bg-backgroundGrey rounded-3xl p-4 shadow-sm flex flex-col gap-4 ${expanded ? 'h-full' : ''}`}>
         <div>
           <p className="font-semibold text-base text-black text-left">Groups</p>
         </div>
 
         <div className="flex gap-4">
-          <div className="w-full max-w-[500px]" ref={inputRef}>
+          <div className="w-full max-w-[500px]">
             <form onSubmit={handleSearchSubmit} className="w-full">
               <div className="relative flex items-center w-full py-1 pl-5 pr-2 rounded-full bg-darkGrey placeholder-black/40 h-8">
                 <input
