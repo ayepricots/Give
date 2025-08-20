@@ -33,7 +33,7 @@ export default function GroupTab({ id }) {
           </div>
           <div>
             <p className="font-semibold text-base text-black">{"Group "+ id}</p>
-            <p className="text-xs text-black-600">{group.members.length} members</p>
+            <p className="text-xs font-semibold text-black-600">{group.members.length} members</p>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ export default function GroupTab({ id }) {
           <h3 className="text-sm font-semibold text-left text-black">
             Most Used Tags
           </h3>
-          <ul className="text-xs mt-2 leading-6 font-medium text-black">
+          <ul className="text-xs font-semibold mt-2 leading-6 font-medium text-black">
             <li className="flex justify-between items-center cursor-pointer pl-2">
               #snacks{" "}
               <img
