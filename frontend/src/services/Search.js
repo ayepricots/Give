@@ -28,7 +28,7 @@ export async function searchUsers(term, max = 8) {
   const snap = await getDocs(qRef);
   const all = snap.docs.map((d) => ({ id: d.id, type: "user", ...d.data() }));
   const filtered = all.filter((u) => {
-    const dn = lower(u.displayName);
+    const dn = lower(u.displayName); 
     const fn = lower(u.firstName);
     const ln = lower(u.lastName);
     const un = lower(u.username);
